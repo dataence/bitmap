@@ -325,8 +325,8 @@ func (this *Ewah) printDetails() {
 //
 
 
-// add is used to add words directly to the bitmap.
-func (this *Ewah) add(newdata uint64) {
+// addWord is used to add words directly to the bitmap.
+func (this *Ewah) addWord(newdata uint64) {
 	this.addSignificantBits(newdata, wordInBits)
 }
 

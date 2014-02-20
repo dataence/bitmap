@@ -225,7 +225,7 @@ func (this *Ewah) andToContainer(a *Ewah, container BitmapStorage) {
 		if leftOverLiterals > 0 {
 			// for each of the left over literals, we will AND them and put the result in the contanier
 			for k := int64(0); k < leftOverLiterals; k++ {
-				container.add(iCursor.getLiteralWordAt(k) & jCursor.getLiteralWordAt(k))
+				container.addWord(iCursor.getLiteralWordAt(k) & jCursor.getLiteralWordAt(k))
 			}
 
 			// Move the cursors forward
@@ -324,7 +324,7 @@ func (this *Ewah) andNotToContainer(a *Ewah, container BitmapStorage) {
 
 		if leftOverLiterals > 0 {
 			for k := int64(0); k < leftOverLiterals; k++ {
-				container.add(iCursor.getLiteralWordAt(k) &^ jCursor.getLiteralWordAt(k))
+				container.addWord(iCursor.getLiteralWordAt(k) &^ jCursor.getLiteralWordAt(k))
 			}
 
 			iCursor.moveForward(leftOverLiterals)
@@ -405,7 +405,7 @@ func (this *Ewah) orToContainer(a *Ewah, container BitmapStorage) {
 
 		if leftOverLiterals > 0 {
 			for k := int64(0); k < leftOverLiterals; k++ {
-				container.add(iCursor.getLiteralWordAt(k) | jCursor.getLiteralWordAt(k))
+				container.addWord(iCursor.getLiteralWordAt(k) | jCursor.getLiteralWordAt(k))
 			}
 
 			// Move the cursors forward
@@ -474,7 +474,7 @@ func (this *Ewah) xorToContainer(a *Ewah, container BitmapStorage) {
 
 		if leftOverLiterals > 0 {
 			for k := int64(0); k < leftOverLiterals; k++ {
-				container.add(iCursor.getLiteralWordAt(k) ^ jCursor.getLiteralWordAt(k))
+				container.addWord(iCursor.getLiteralWordAt(k) ^ jCursor.getLiteralWordAt(k))
 			}
 
 			// Move the cursors forward
